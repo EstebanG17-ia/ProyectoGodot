@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dtr1ouvxnleuw"]
+
+[ext_resource type="Texture2D" uid="uid://ki35hi716qcw" path="res://assets/sprites/background.png" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://djjg3i36vxv3d" path="res://big_asteroide.tscn" id="2_r0du0"]
+[ext_resource type="PackedScene" uid="uid://bf5062ti0f8jl" path="res://mediuma_asteroide.tscn" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://wx6jm5ta84ej" path="res://smalal_asteroide.tscn" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://b5gn2e0yos4y4" path="res://Laser.tscn" id="5_fos0i"]
+
+[node name="Node2D" type="Node2D" unique_id=613075161]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=60900935]
+position = Vector2(577, 340)
+scale = Vector2(0.6018191, 0.5545675)
+texture = ExtResource("1_uu6xs")
+
+[node name="BigAsteroide" parent="." unique_id=1222279962 instance=ExtResource("2_r0du0")]
+position = Vector2(901, 14)
+
+[node name="Area2D" parent="." unique_id=2145954991 instance=ExtResource("3_cm0pq")]
+position = Vector2(957, 116)
+
+[node name="Area2D2" parent="." unique_id=237423785 instance=ExtResource("4_cm0pq")]
+position = Vector2(1037, 498)
+
+[node name="Area2D3" parent="." unique_id=997558252 instance=ExtResource("5_fos0i")]
+position = Vector2(41, 293)

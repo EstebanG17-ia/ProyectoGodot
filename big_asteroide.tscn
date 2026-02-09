@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://djjg3i36vxv3d"]
+
+[ext_resource type="Script" uid="uid://depnxaxxxvil4" path="res://big_asteroide.gd" id="1_ds0fb"]
+[ext_resource type="Texture2D" uid="uid://ebdycbeawfh3" path="res://assets/sprites/rock-big.png" id="1_xapdi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ds0fb"]
+radius = 77.92946
+
+[node name="BigAsteroide" type="Area2D" unique_id=1222279962]
+script = ExtResource("1_ds0fb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1795130325]
+position = Vector2(121, 270)
+texture = ExtResource("1_xapdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1811561911]
+position = Vector2(119, 273)
+shape = SubResource("CircleShape2D_ds0fb")
