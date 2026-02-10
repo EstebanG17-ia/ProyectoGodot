@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bf5062ti0f8jl" path="res://mediuma_asteroide.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://wx6jm5ta84ej" path="res://smalal_asteroide.tscn" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://b5gn2e0yos4y4" path="res://Laser.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://7rjxjkx6rr3m" path="res://player.tscn" id="6_3dxm6"]
 
 [node name="Node2D" type="Node2D" unique_id=613075161]
 
@@ -24,3 +25,5 @@ position = Vector2(1037, 498)
 
 [node name="Area2D3" parent="." unique_id=997558252 instance=ExtResource("5_fos0i")]
 position = Vector2(41, 293)
+
+[node name="Player" parent="." unique_id=1174121348 instance=ExtResource("6_3dxm6")]

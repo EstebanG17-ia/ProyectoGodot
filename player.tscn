@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://7rjxjkx6rr3m"]
+
+[ext_resource type="Script" uid="uid://dxcv7h6n8vys8" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://u1dwh7mn2yxx" path="res://assets/sprites/ship.png" id="2_i3pqv"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1174121348]
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617522122]
+position = Vector2(90, 153)
+rotation = 1.5707964
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1198467454]
+position = Vector2(1, 0)
+polygon = PackedVector2Array(47, 75, 48, 232, 148, 153)
