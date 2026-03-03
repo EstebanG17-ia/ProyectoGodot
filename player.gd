@@ -1,13 +1,12 @@
 extends CharacterBody2D
 
-@export var speed := 300
+@export var speed: float = 300.0
 
-func _process(delta):
-	var direction := 0
-
-	if Input.is_action_pressed("Up"):
-		direction -= 1
-	if Input.is_action_pressed("Down"):
-		direction += 1
-
-	position.y += direction * speed * delta
+func _physics_process(delta: float) -> void:
+	var x_input = Input.get_axis("Left", "Right")
+	var y_input = Input.get_axis("Up", "Down")
+	
+	velocity.x = x_input * speed
+	velocity.y = y_input * speed
+	
+	move_and_slide()
