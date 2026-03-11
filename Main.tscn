@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://djjg3i36vxv3d" path="res://big_asteroide.tscn" id="2_r0du0"]
 [ext_resource type="PackedScene" uid="uid://bf5062ti0f8jl" path="res://mediuma_asteroide.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://wx6jm5ta84ej" path="res://smalal_asteroide.tscn" id="4_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://b5gn2e0yos4y4" path="res://Laser.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://7rjxjkx6rr3m" path="res://player.tscn" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://cfqep68rraawd" path="res://asteroide_spawner.gd" id="7_lgr22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
 size = Vector2(10, 672)
@@ -25,20 +25,6 @@ size = Vector2(1171, 10)
 position = Vector2(577, 340)
 scale = Vector2(0.6018191, 0.5545675)
 texture = ExtResource("1_uu6xs")
-
-[node name="BigAsteroide" parent="." unique_id=1222279962 instance=ExtResource("2_r0du0")]
-position = Vector2(901, 14)
-
-[node name="MediumAsteroide" parent="." unique_id=2145954991 instance=ExtResource("3_cm0pq")]
-position = Vector2(957, 116)
-
-[node name="SmallAsteroide" parent="." unique_id=237423785 instance=ExtResource("4_cm0pq")]
-position = Vector2(1037, 498)
-
-[node name="Laser" parent="." unique_id=997558252 instance=ExtResource("5_fos0i")]
-position = Vector2(41, 293)
-
-[node name="Player" parent="." unique_id=1174121348 instance=ExtResource("6_3dxm6")]
 
 [node name="Wall(limitadores de movimiento)" type="Node" parent="." unique_id=1245837290]
 
@@ -65,3 +51,31 @@ shape = SubResource("RectangleShape2D_03owx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall(limitadores de movimiento)/TopWall" unique_id=1401888381]
 position = Vector2(574.5, -4)
 shape = SubResource("RectangleShape2D_3dxm6")
+
+[node name="Objetos(Laser, Nave y Asteroides)" type="Node" parent="." unique_id=1431248677]
+
+[node name="BigAsteroide" parent="Objetos(Laser, Nave y Asteroides)" unique_id=1222279962 instance=ExtResource("2_r0du0")]
+position = Vector2(901, 14)
+
+[node name="MediumAsteroide" parent="Objetos(Laser, Nave y Asteroides)" unique_id=2145954991 instance=ExtResource("3_cm0pq")]
+position = Vector2(957, 116)
+
+[node name="SmallAsteroide" parent="Objetos(Laser, Nave y Asteroides)" unique_id=237423785 instance=ExtResource("4_cm0pq")]
+position = Vector2(1037, 498)
+
+[node name="Player" parent="Objetos(Laser, Nave y Asteroides)" unique_id=1174121348 instance=ExtResource("6_3dxm6")]
+position = Vector2(3, 186)
+
+[node name="AsteroideSpawner" type="Marker2D" parent="." unique_id=1894923118]
+position = Vector2(1226, 316)
+script = ExtResource("7_lgr22")
+asteroides = Array[PackedScene]([ExtResource("2_r0du0"), ExtResource("3_cm0pq"), ExtResource("4_cm0pq")])
+
+[node name="Timer" type="Timer" parent="AsteroideSpawner" unique_id=1933966272]
+wait_time = 0.2
+autostart = true
+
+[node name="BigAsteroide" parent="." unique_id=1597036847 instance=ExtResource("2_r0du0")]
+position = Vector2(-44, -213)
+
+[connection signal="timeout" from="AsteroideSpawner/Timer" to="AsteroideSpawner" method="_on_timer_timeout"]

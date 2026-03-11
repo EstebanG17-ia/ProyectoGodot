@@ -6,12 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bitv"]
 radius = 31.0
 
-[node name="Area2D" type="Area2D" unique_id=237423785]
+[node name="SmallAsteroide" type="Area2D" unique_id=237423785 groups=["asteroides"]]
+position = Vector2(1042, 113)
 script = ExtResource("1_ad7t3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1062080106]
 texture = ExtResource("1_btscr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341861475]
-position = Vector2(1, -2)
+position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_1bitv")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
