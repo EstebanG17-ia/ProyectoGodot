@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d157xhdr3m61c"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1536048275]
+
+[node name="lblPuntos" type="Label" parent="." unique_id=167112606]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Puntos: 0"

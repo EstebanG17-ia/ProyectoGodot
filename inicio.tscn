@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://wkkou1q8uvo2"]
+
+[node name="Inicio" type="Control" unique_id=2033548141]
+layout_mode = 3
+anchor_right = 0.09200001
+anchor_bottom = 0.12900001
+offset_right = 0.015991211
+offset_bottom = 6.407997
+
+[node name="lblInicio" type="Label" parent="." unique_id=1597333173]
+process_mode = 3
+layout_mode = 0
+offset_right = 252.0
+offset_bottom = 23.0
+text = "Presiona espacio para jugar"
+clip_text = true
+uppercase = true

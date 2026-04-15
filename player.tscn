@@ -2,33 +2,37 @@
 
 [ext_resource type="Script" uid="uid://dxcv7h6n8vys8" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://b5gn2e0yos4y4" path="res://Laser.tscn" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://u1dwh7mn2yxx" path="res://assets/sprites/ship.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://n1ayju47y8db" path="res://assets/sprites/DinoJuegoRAAAAAWW.png" id="3_i3pqv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
-radius = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3pqv"]
+size = Vector2(120.99306, 1165.5234)
 
 [node name="Player" type="CharacterBody2D" unique_id=1174121348 groups=["player"]]
 z_index = 1
-position = Vector2(74, 207)
+position = Vector2(403, 590)
+rotation = -1.5760323
 script = ExtResource("1_onrkg")
 laser_scene = ExtResource("2_hqtel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1617522122]
-position = Vector2(90, 153)
+position = Vector2(74.166435, 159.3905)
 rotation = 1.5707964
-texture = ExtResource("2_i3pqv")
+scale = Vector2(0.30009624, 0.32463786)
+texture = ExtResource("3_i3pqv")
 
 [node name="LaserSpawn" type="Marker2D" parent="." unique_id=438405726]
-position = Vector2(137, 154)
+position = Vector2(131.19711, 153.68904)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1198467454]
-position = Vector2(1, 0)
-polygon = PackedVector2Array(47, 75, 48, 232, 148, 153)
+position = Vector2(-31.046684, 8.83755)
+scale = Vector2(0.9992053, 1.1059698)
+polygon = PackedVector2Array(53.07849, 60.031555, 54.07849, 217.03156, 159.87732, 214.84009, 162.67316, 62.85263)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=421500507 groups=["player"]]
+position = Vector2(-0.9947504, -1.0052239)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=567371977]
-position = Vector2(78, 153)
-shape = SubResource("CircleShape2D_i3pqv")
+position = Vector2(-36.360718, 173.24893)
+shape = SubResource("RectangleShape2D_i3pqv")
 
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhqilfo06bisy"]
+
+[node name="GameOverScreen" type="CanvasLayer" unique_id=1930893236]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435425863]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 1172.0
+offset_bottom = 664.0
+color = Color(0, 0, 0, 0.5176471)
+
+[node name="lblMensaje" type="Label" parent="." unique_id=600581922]
+offset_left = 493.0
+offset_top = 266.0
+offset_right = 585.0
+offset_bottom = 289.0
+text = "GAME OVER"
+
+[node name="lblReiniciar" type="Label" parent="." unique_id=983523315]
+offset_left = 420.0
+offset_top = 340.0
+offset_right = 651.0
+offset_bottom = 363.0
+text = "Presiona R para volver a jugar"

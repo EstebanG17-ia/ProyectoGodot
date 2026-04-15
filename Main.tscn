@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://dtr1ouvxnleuw"]
 
-[ext_resource type="Texture2D" uid="uid://ki35hi716qcw" path="res://assets/sprites/background.png" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://dbgojhdgk1jtg" path="res://main.gd" id="1_trn2v"]
 [ext_resource type="PackedScene" uid="uid://djjg3i36vxv3d" path="res://big_asteroide.tscn" id="2_r0du0"]
+[ext_resource type="Texture2D" uid="uid://ccei5bgyyfpmg" path="res://assets/487.jpg" id="2_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://bf5062ti0f8jl" path="res://mediuma_asteroide.tscn" id="3_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://wx6jm5ta84ej" path="res://smalal_asteroide.tscn" id="4_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://7rjxjkx6rr3m" path="res://player.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://wkkou1q8uvo2" path="res://inicio.tscn" id="6_lgr22"]
 [ext_resource type="Script" uid="uid://cfqep68rraawd" path="res://asteroide_spawner.gd" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://d157xhdr3m61c" path="res://puntos.tscn" id="8_03owx"]
+[ext_resource type="PackedScene" uid="uid://bhqilfo06bisy" path="res://game_over_screen.tscn" id="9_wkp8b"]
+[ext_resource type="Script" uid="uid://j6ngx6c37axq" path="res://suelo.gd" id="10_wkp8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgr22"]
 size = Vector2(10, 672)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_trn2v"]
-size = Vector2(1170, 15.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_03owx"]
 size = Vector2(12, 664)
@@ -19,31 +20,30 @@ size = Vector2(12, 664)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dxm6"]
 size = Vector2(1171, 10)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkp8b"]
+size = Vector2(1175, 84)
+
 [node name="Node2D" type="Node2D" unique_id=613075161]
+process_mode = 3
+script = ExtResource("1_trn2v")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=60900935]
-position = Vector2(577, 340)
-scale = Vector2(0.6018191, 0.5545675)
-texture = ExtResource("1_uu6xs")
+position = Vector2(577.50006, 581.5)
+scale = Vector2(0.19849999, 0.29925)
+texture = ExtResource("2_wkp8b")
 
 [node name="Wall(limitadores de movimiento)" type="Node" parent="." unique_id=1245837290]
 
 [node name="BottonWall" type="StaticBody2D" parent="Wall(limitadores de movimiento)" unique_id=1245738374]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall(limitadores de movimiento)/BottonWall" unique_id=1059755611]
-position = Vector2(-5, 326)
+position = Vector2(-12, 327)
 shape = SubResource("RectangleShape2D_lgr22")
-
-[node name="LetfWall" type="StaticBody2D" parent="Wall(limitadores de movimiento)" unique_id=1017502690]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall(limitadores de movimiento)/LetfWall" unique_id=894162170]
-position = Vector2(575, 653.25)
-shape = SubResource("RectangleShape2D_trn2v")
 
 [node name="RightWall" type="StaticBody2D" parent="Wall(limitadores de movimiento)" unique_id=1620931801]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall(limitadores de movimiento)/RightWall" unique_id=963805196]
-position = Vector2(1156, 328)
+position = Vector2(1166, 333)
 shape = SubResource("RectangleShape2D_03owx")
 
 [node name="TopWall" type="StaticBody2D" parent="Wall(limitadores de movimiento)" unique_id=20855019]
@@ -58,15 +58,23 @@ shape = SubResource("RectangleShape2D_3dxm6")
 position = Vector2(901, 14)
 
 [node name="MediumAsteroide" parent="Objetos(Laser, Nave y Asteroides)" unique_id=2145954991 instance=ExtResource("3_cm0pq")]
-position = Vector2(957, 116)
+position = Vector2(98, -87)
 
 [node name="SmallAsteroide" parent="Objetos(Laser, Nave y Asteroides)" unique_id=237423785 instance=ExtResource("4_cm0pq")]
-position = Vector2(1037, 498)
+position = Vector2(842, -93)
 
-[node name="Player" parent="Objetos(Laser, Nave y Asteroides)" unique_id=1174121348 instance=ExtResource("6_3dxm6")]
-position = Vector2(3, 186)
+[node name="Inicio" parent="Objetos(Laser, Nave y Asteroides)" unique_id=2033548141 instance=ExtResource("6_lgr22")]
+offset_left = 413.0
+offset_top = 315.0
+offset_right = 413.016
+offset_bottom = 321.408
+
+[node name="HUD" parent="Objetos(Laser, Nave y Asteroides)" unique_id=1536048275 instance=ExtResource("8_03owx")]
+
+[node name="GameOverScreen" parent="Objetos(Laser, Nave y Asteroides)" unique_id=1930893236 instance=ExtResource("9_wkp8b")]
 
 [node name="AsteroideSpawner" type="Marker2D" parent="." unique_id=1894923118]
+process_mode = 3
 position = Vector2(1226, 316)
 script = ExtResource("7_lgr22")
 asteroides = Array[PackedScene]([ExtResource("2_r0du0"), ExtResource("3_cm0pq"), ExtResource("4_cm0pq")])
@@ -76,6 +84,15 @@ wait_time = 0.2
 autostart = true
 
 [node name="BigAsteroide" parent="." unique_id=1597036847 instance=ExtResource("2_r0du0")]
-position = Vector2(-44, -213)
+position = Vector2(-646, -659)
+
+[node name="Suelo" type="Area2D" parent="." unique_id=615694089 groups=["Suelo"]]
+position = Vector2(11, 625)
+script = ExtResource("10_wkp8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=613033169 groups=["Suelo"]]
+position = Vector2(569.5, -19)
+shape = SubResource("RectangleShape2D_wkp8b")
 
 [connection signal="timeout" from="AsteroideSpawner/Timer" to="AsteroideSpawner" method="_on_timer_timeout"]
+[connection signal="area_entered" from="Suelo" to="Suelo" method="_on_area_entered"]

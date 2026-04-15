@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bi7c0vr013y8b"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1536048275]
+
+[node name="lblPuntos" type="Label" parent="." unique_id=167112606]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Puntos: 0"

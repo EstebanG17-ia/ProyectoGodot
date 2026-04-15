@@ -1,15 +1,18 @@
 extends CharacterBody2D
 
-@export var speed: float = 300.0
+@export var speed: float = 400.0
 @export var laser_scene: PackedScene
+
+func _ready():
+	var screen_size = get_viewport_rect().size
+	
+	global_position.x = screen_size.x / 2
+	global_position.y = screen_size.y - 50
+
 
 func _physics_process(delta: float) -> void:
 	var x_input = Input.get_axis("Left", "Right")
-	var y_input = Input.get_axis("Up", "Down")
-
 	velocity.x = x_input * speed
-	velocity.y = y_input * speed
-
 	move_and_slide()
 
 	if Input.is_action_just_pressed("shoot"):
@@ -25,4 +28,8 @@ func create_laser():
 
 func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("asteroides"):
+		var main_node = get_tree().current_scene
+		if main_node.has_method("detener_juego"):
+			main_node.detener_juego()
+		
 		queue_free()
